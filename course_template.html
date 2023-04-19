@@ -3,6 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" type="text/css" media="all">
+    <title>Hey</title>
   </head>
   <body>
     <div class="wrapper">
@@ -24,7 +25,7 @@
         <div class="billet_buttons_container">
           <a class="billet_button active_button" href="#">Выбрать учебный центр</a>
           <a class="billet_button" href="#">Зарегистрироваться на сертификацию</a>
-          <a class="billet_button" href="#">Учиться самостоятельно</a>
+          <a class="billet_button self_taught">Учиться самостоятельно</a>
         </div>
       </div>
       <div class="blank_line"></div>
@@ -145,18 +146,29 @@
             <li>Обладать навыками работы с контейнерами (Docker и Docker Compose)</li>
           </ul>
         </div>
+        <div class="middle_column">
+          <p class="lead">
+            Рекомендуется иметь
+          </p>
+          <ul>
+            <!-- <li>Знания принципов работы сканеров уязвимостей</li>
+            <li>Опыт работы с MaxPatrol SIEM, MaxPatrol 8 и другими продуктами Positive Technologies</li>
+            <li>Опыт работы с SQL-запросами в любой БД</li>
+            <li>Понимание стандарта Common Vulnerability Scoring System (CVSS)</li> -->
+          </ul>
+        </div>
         <div class="right_column">
           <p class="lead">
             Перед прохождением курса рекомендуем изучить
           </p>
-          <ul>
-            <li><a href="https://www.youtube.com/watch?app=desktop&v=Bggf8BQingQ">Что такое MaxPatrol SIEM</a></li>
+          <ul>*RECOMMENDATIONS*
+            <!-- <li><a href="https://www.youtube.com/watch?app=desktop&v=Bggf8BQingQ">Что такое MaxPatrol SIEM</a></li>
             <li><a href="https://edu.ptsecurity.com/mira/#&pathlength=2&VIEW_MODE=standard&type1=usergmlist&type=studentcourse&type0=usergmlist&step0=2&step1=3&s=Cr6ySLLLG3axMYcF5rbR&id0=-10&id1=43&doaction=Go&id=3767&name1=PT+Start&name0=%D0%9E%D0%B1%D1%83%D1%87%D0%B0%D1%8E%D1%89%D0%B8%D0%B5+%D0%BA%D1%83%D1%80%D1%81%D1%8B">Электронный курс «PT-Start. Модуль 1. Windows & AD базовый»</a></li>
             <li><a href="https://edu.ptsecurity.com/mira/#&doaction=Go&s=8TgZ0VKBTRtNWfh37R56&id=3822&type=studentmeasure">Электронный курс «PT-Start. Модуль 2. Network базовый»</a></li>
             <li><a href="https://edu.ptsecurity.com/mira/#&doaction=Go&s=2CnTSmFVnmsu7Qsxp3Gw&id=3985&type=studentmeasure">Электронный курс «PT-Start. Модуль 3. OS Linux базовый»</a></li>
             <li><a href="https://www.ptsecurity.com/ru-ru/research/webinar/maxpatrol-siem-7-0-chto-novogo/">MaxPatrol SIEM 7.0: что нового</a></li>
             <li><a href="https://www.ptsecurity.com/ru-ru/research/webinar/maxpatrol-siem-maxpatrol-vm-chto-daet-sinergiya-dvuh-produktov/">MaxPatrol SIEM + MaxPatrol VM. Что дает синергия двух продуктов</a></li>
-            <li><a href="https://habr.com/ru/company/pt/blog/703084/">Как экспертиза в мониторинге событий ИБ помогает создавать качественные продукты</a></li>
+            <li><a href="https://habr.com/ru/company/pt/blog/703084/">Как экспертиза в мониторинге событий ИБ помогает создавать качественные продукты</a></li> -->
           </ul>
         </div>
       </div>
@@ -202,5 +214,63 @@
         </div>
       </div>
     </div>
+    <script>
+      function remove_third_button() {
+        let self_taught = document.getElementsByClassName('self_taught')[0];
+        let billet_buttons = document.getElementsByClassName('billet_buttons_container')[0];
+        if (!self_taught.attributes.href) {
+          self_taught.remove();
+          billet_buttons.style.justifyContent = "flex-start";
+        }  
+      }
+
+      function arrange_requirements() {
+        let requirements = document.getElementsByClassName('requirements')[0];
+        let middle_column = requirements.getElementsByClassName('middle_column');
+        let right_column = requirements.getElementsByClassName('right_column');
+
+        if (middle_column[0].children[1].innerText == "" || 
+            middle_column[0].children[1].innerText == "*DESIRED*") {
+          middle_column[0].remove();
+        }
+
+        if (right_column[0].children[1].innerText == "" ||
+            right_column[0].children[1].innerText == "*RECOMMENDATIONS*") {
+          right_column[0].remove();
+        }
+
+        if (requirements.children.length == 2) {
+          requirements.classList.add('requirements_nowrap');
+          for (let i of requirements.children) {
+            i.classList.add('column_half_width');
+          }
+        }
+      }
+
+      function arrange_certification() {
+        let get_ready = document.getElementsByClassName('get_ready_authorized_centers')[0];
+        let right_column = get_ready.getElementsByClassName('right_column');
+        let left_column = get_ready.getElementsByClassName('left_column')[0];
+
+        console.log(right_column[0].children[1].innerText);
+        if (right_column[0].children[1].innerText == "" ||
+            right_column[0].children[1].innerText == "*AUTHORIZED_CENTERS*") {
+          right_column[0].remove();
+          left_column.style.width = "100%";
+          left_column.style.maxWidth = "100%";
+
+        }
+      }
+      
+      document.getElementsByTagName('title')[0].innerText='*TITLE*';
+      remove_third_button();
+      arrange_requirements();
+      arrange_certification();
+    </script>
+    <!-- <script>
+      if (window.location.search.slice(1,28) != 'filters578749595=name__eq__') {
+        window.location.replace('https://info.edu.ptsecurity.com/catalog');    
+      }
+    </script> -->
   </body>
 </html>

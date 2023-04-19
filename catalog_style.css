@@ -1,0 +1,73 @@
+<style>
+  .catalog_wrapper * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .catalog_wrapper {
+    box-sizing: border-box;
+    margin: 50px auto 60px auto;
+    max-width: 1200px;
+  }
+  
+  .cards_container {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .card {
+    font-family: 'TTpositive', sans-serif;
+    border-radius: 15px;
+    width: 231px;
+    height: 300px;
+    background-color: #7296c2;
+    background-image: url('Group_blue.webp');
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .card_text {
+    position: relative;
+    top: 30px;
+    margin: 0px 25px 35px 25px;
+    height: calc(100% - 60px);
+    color: #ffffff;
+  }
+  
+  .card_text h3 {
+    font-size: 22px;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+  
+  .card_text p {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  
+  @media all and (max-width: 490px) {
+    .card {
+      width: 150px;
+      height: 210px;
+    }
+    
+    .card_text {
+      top: 20px;
+      margin: 0 15px 25px 15px;
+    }
+    
+    .card_text h3 {
+      font-size: 18px;
+    }
+    
+    .card_text p {
+      font-size: 12px;
+      margin-top: 5px;
+    }
+  }
+</style>
