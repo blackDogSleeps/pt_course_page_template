@@ -98,13 +98,21 @@
           <p class="lead">*CERTIFICATION_INFO*</p>
           <div class="contacts_button_container">
             <a class="billet_button active_button" href="#sertification_registration">Записаться</a>
+            <a class="contacts_link" target="_blank" href="*EXAM_THEMES*">Темы для подготовки</a>
           </div>  
         </div>
-        <div class="right_column">
-          <h2>Контакты</h2>
-          <p class="lead">
-            При возникновении вопросов по процессу обучения или содержанию курса обращайтесь по адресу <a href="mailto:edu@ptsecurity.com" target="_blank" rel="noreferrer noopener">edu@ptsecurity.com</a>
-          </p>
+        <div class="right_column contacts-flex">
+          <div class="contacts-flex-text">
+            <h2>Контакты</h2>
+            <p class="lead">
+              При возникновении вопросов по процессу обучения или содержанию курса обращайтесь по адресу <a href="mailto:edu@ptsecurity.com" target="_blank" rel="noreferrer noopener">edu@ptsecurity.com</a>
+            </p>
+          </div>
+          <div class="contacts_button_container social_items_container">
+            <a href="*TELEGRAM_LINK*" target="_blank">
+              <div class="social_link_item" style="background-image: url('https://static.tildacdn.com/tild3137-3436-4164-b364-643530356566/telegram_logo.png');"></div>
+            </a>
+          </div>
         </div>
       </div>
       <div class="blank_line"></div>
@@ -145,7 +153,6 @@
         let right_column = get_ready.getElementsByClassName('right_column');
         let left_column = get_ready.getElementsByClassName('left_column')[0];
 
-        console.log(right_column[0].children[1].innerText);
         if (right_column[0].children[1].innerText == "") {
           right_column[0].remove();
           left_column.style.width = "100%";
